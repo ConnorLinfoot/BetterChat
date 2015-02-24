@@ -16,7 +16,8 @@ public class Chat implements Listener {
 
         String channel = ChannelHandler.getPlayerChannel(player);
         if (BetterChat.betterChat.getConfig().isSet("Channels." + channel + ".Permission Required")
-                && !player.hasPermission("betterchat.channel." + channel)) {
+                && !player.hasPermission("betterchat.channel." + channel)
+                && !player.hasPermission("betterchat.all")) {
             player.sendMessage(ChatColor.RED + "You do not have the required permissions to talk in this channel");
             event.setCancelled(false);
             return;

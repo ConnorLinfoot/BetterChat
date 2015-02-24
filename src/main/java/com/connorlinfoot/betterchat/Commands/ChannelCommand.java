@@ -33,7 +33,7 @@ public class ChannelCommand implements CommandExecutor {
             return false;
         }
 
-        if (ChannelHandler.channelUsesPerms(channel) && !player.hasPermission("betterchat.channel." + channel)) {
+        if (ChannelHandler.channelUsesPerms(channel) && !player.hasPermission("betterchat.channel." + channel) && !player.hasPermission("betterchat.all")) {
             player.sendMessage(ChatColor.RED + "You don't have permission to join this channel");
             return false;
         }

@@ -12,3 +12,5 @@ commands:
 permissions:
   betterchat.staff:
     default: op
+  betterchat.all:
+    default: op

@@ -21,10 +21,12 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * ~~Custom Chat Channels~~
 * ~~Staff Chat~~
 * On-the-fly Channels
-* Permission to access ALL channels - Good for staff.
+* ~~Permission to access ALL channels - Good for staff.~~
 * More per channel options
 * Channel configuration GUI
 * Custom commands per channel - /NAME \<message\>
+* Add color code support
+* Add a option for default channel
 * Many more planned features will be added.
 
 
@@ -35,6 +37,7 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 
 ### Permissions
 * betterchat.channel.channelname - Replacing channelname with the name of the channel will give you the required permission to join a channel if it is enabled in the config to use permissions.
-* betterchat.staff - Access to staff chat, including staff chat commands.
+* betterchat.staff - Access to staff chat, including staff chat commands. Defaults to OP.
+* betterchat.all - Access to join ALL channels, defaults to OP.
 
 If you have any ideas or suggestions please post them as an issue!
