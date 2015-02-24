@@ -1,5 +1,6 @@
 package com.connorlinfoot.betterchat.Commands;
 
+import com.connorlinfoot.betterchat.BetterChat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -10,6 +11,11 @@ import org.bukkit.entity.Player;
 public class StaffChatCommand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command command, String string, String[] args) {
+        if (!BetterChat.betterChat.getConfig().getBoolean("Settings.Staff Chat Enabled")) {
+            sender.sendMessage(ChatColor.RED + "Staff chat is disabled");
+            return false;
+        }
+
         if (!(sender instanceof Player)) {
             sender.sendMessage(ChatColor.RED + "This command currently only works for players");
             return false;

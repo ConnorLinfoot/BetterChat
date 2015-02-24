@@ -22,7 +22,7 @@ public class BetterChat extends JavaPlugin implements Listener {
         Server server = getServer();
         ConsoleCommandSender console = server.getConsoleSender();
 
-        if (!getConfig().isSet("Channels.Default.Permission Required")) {
+        if (!getConfig().isSet("Channels." + getConfig().getString("Settings.Default Channel") + ".Permission Required")) {
             console.sendMessage("");
             console.sendMessage(ChatColor.BLUE + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
             console.sendMessage("");

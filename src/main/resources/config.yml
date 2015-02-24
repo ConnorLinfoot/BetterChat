@@ -2,9 +2,11 @@
 # Version ${project.version}
 # Please report bugs as an issue here: https://github.com/connorlinfoot/BetterChat
 #
-# Do NOT remove the "Default" channel. If the default channel is removed the plugin will not start!
+# You MUST have a default channel. If the default channel is removed the plugin will not start!
 
-Staff Chat Enabled: true
+Settings:
+  Staff Chat Enabled: true
+  Default Channel: Default
 
 Channels:
   Default:
