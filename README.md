@@ -8,7 +8,7 @@ This plugin is currently in development!
 
 
 ### Features
-* Staff Chat - A way for staff to talk between themselfs privately.
+* Staff Chat - A way for staff to talk between themselves privately.
 * Custom Chat Channels - Allow players to switch between channels where only players in that channel can see messages.
 * On-the-fly Channels - Use a command to create a channel and instantly start using it without any reboot or performance impact.
 

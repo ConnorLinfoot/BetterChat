@@ -1,5 +1,6 @@
 package com.connorlinfoot.betterchat;
 
+import com.connorlinfoot.betterchat.Commands.ChannelCommand;
 import com.connorlinfoot.betterchat.Listeners.Chat;
 import com.connorlinfoot.betterchat.Listeners.PlayerJoin;
 import org.bukkit.Bukkit;
@@ -7,7 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.event.Listener;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class BetterChat extends JavaPlugin implements Listener {
@@ -21,7 +21,7 @@ public class BetterChat extends JavaPlugin implements Listener {
         Server server = getServer();
         ConsoleCommandSender console = server.getConsoleSender();
 
-        if (!getConfig().isSet("Channels.Default")) {
+        if (!getConfig().isSet("Channels.Default.Permission Required")) {
             console.sendMessage("");
             console.sendMessage(ChatColor.BLUE + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
             console.sendMessage("");
@@ -34,6 +34,7 @@ public class BetterChat extends JavaPlugin implements Listener {
         }
 
         registerEvents();
+        registerCommands();
 
         console.sendMessage("");
         console.sendMessage(ChatColor.BLUE + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
@@ -54,8 +55,12 @@ public class BetterChat extends JavaPlugin implements Listener {
         getLogger().info(getDescription().getName() + " has been disabled!");
     }
 
-    private void registerEvents(){
+    private void registerEvents() {
         Bukkit.getPluginManager().registerEvents(new Chat(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
+    }
+
+    private void registerCommands() {
+        Bukkit.getPluginCommand("channel").setExecutor(new ChannelCommand());
     }
 }
