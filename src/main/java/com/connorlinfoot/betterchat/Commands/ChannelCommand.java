@@ -27,6 +27,7 @@ public class ChannelCommand implements CommandExecutor {
         }
 
         String channel = stringBuilder.toString();
+        channel = channel.replaceAll("\\s+$", "");
         if (!ChannelHandler.channelExists(channel)) {
             player.sendMessage(ChatColor.RED + "The channel \"" + channel + "\" could not be found");
             return false;
