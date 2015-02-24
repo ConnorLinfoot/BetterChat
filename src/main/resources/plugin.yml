@@ -9,3 +9,6 @@ commands:
   channel:
     description: Switch which chat channel you are currently in
     aliases: [switchchannel,c]
+permissions:
+  betterchat.staff:
+    default: op

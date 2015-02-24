@@ -1,6 +1,7 @@
 package com.connorlinfoot.betterchat;
 
 import com.connorlinfoot.betterchat.Commands.ChannelCommand;
+import com.connorlinfoot.betterchat.Commands.StaffChatCommand;
 import com.connorlinfoot.betterchat.Listeners.Chat;
 import com.connorlinfoot.betterchat.Listeners.PlayerJoin;
 import org.bukkit.Bukkit;
@@ -62,5 +63,6 @@ public class BetterChat extends JavaPlugin implements Listener {
 
     private void registerCommands() {
         Bukkit.getPluginCommand("channel").setExecutor(new ChannelCommand());
+        Bukkit.getPluginCommand("staffchat").setExecutor(new StaffChatCommand());
     }
 }

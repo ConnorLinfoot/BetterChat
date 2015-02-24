@@ -14,8 +14,8 @@ This plugin is currently in development!
 
 
 ### TODO
-* Custom Chat Channels - This has been added at a minimal line, still needs testing.
-* Staff Chat
+* ~~Custom Chat Channels~~
+* ~~Staff Chat~~
 * On-the-fly Channels
 * Permission to access ALL channels - Good for staff.
 * More per channel options

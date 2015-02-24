@@ -3,7 +3,6 @@
 # Please report bugs as an issue here: https://github.com/connorlinfoot/BetterChat
 #
 # Do NOT remove the "Default" channel. If the default channel is removed the plugin will not start!
-# Advanced settings will be removed on final builds!
 
 Staff Chat Enabled: true
 
@@ -16,6 +15,3 @@ Channels:
     Permission Required: true
   Channel C:
     Permission Required: false
-
-Advanced Settings:
-  Staff Chat Permission: betterchat.staff
