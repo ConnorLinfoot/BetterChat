@@ -7,6 +7,10 @@ BetterChat allows multiple custom chat channels as well as a staff chat.
 This plugin is currently in development!
 
 
+### Latest Release
+You can download the latest "stable" release of BetterChat on Spigot: http://www.spigotmc.org/resources/betterchat.4372/
+
+
 ### Features
 * Staff Chat - A way for staff to talk between themselves privately.
 * Custom Chat Channels - Allow players to switch between channels where only players in that channel can see messages.
