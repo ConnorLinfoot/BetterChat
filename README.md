@@ -25,7 +25,7 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * More per channel options
 * Channel configuration GUI
 * Custom commands per channel - /NAME \<message\>
-* Add color code support
+* ~~Add color code support~~
 * ~~Add a option for default channel~~
 * Many more planned features will be added.
 

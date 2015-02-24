@@ -36,7 +36,11 @@ public class StaffChatCommand implements CommandExecutor {
         for (String value : args) {
             stringBuilder.append(value).append(" ");
         }
+
         String message = stringBuilder.toString();
+        if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
+            message = ChatColor.translateAlternateColorCodes('&', message);
+        }
 
         for (Player player1 : Bukkit.getOnlinePlayers()) {
             if (player1.hasPermission("betterchat.staff")) {

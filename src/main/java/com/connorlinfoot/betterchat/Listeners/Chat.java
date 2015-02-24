@@ -23,6 +23,10 @@ public class Chat implements Listener {
             return;
         }
 
+        if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
+            event.setMessage(ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+        }
+
         for (Player player1 : event.getRecipients()) {
             if (!ChannelHandler.isInChannel(player1, channel)) {
                 event.getRecipients().remove(player1);
