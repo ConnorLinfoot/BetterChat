@@ -1,0 +1,11 @@
+name: BetterChat
+description: BetterChat allows multiple custom chat channels as well as a staff chat
+main: com.connorlinfoot.betterchat.BetterChat
+version: ${project.version}
+commands:
+  staffchat:
+    description: Send a message to all staff
+    aliases: [sc,staff]
+  channel:
+    description: Switch which chat channel you are currently in
+    aliases: [switchchannel,c]
