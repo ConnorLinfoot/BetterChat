@@ -40,7 +40,7 @@ public class StaffChatCommand implements CommandExecutor {
 
         for (Player player1 : Bukkit.getOnlinePlayers()) {
             if (player1.hasPermission("betterchat.staff")) {
-                player1.sendMessage(ChatColor.GRAY + "[" + ChatColor.AQUA + "Staff Chat" + ChatColor.GRAY + "] " + ChatColor.RESET + message);
+                player1.sendMessage(ChatColor.GRAY + "[" + ChatColor.AQUA + "Staff Chat" + ChatColor.GRAY + "] " + ChatColor.GOLD + player.getDisplayName() + " " + ChatColor.RESET + message);
             }
         }
 
