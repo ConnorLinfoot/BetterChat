@@ -19,6 +19,7 @@ Channels:
   Channel B:
     Permission Required: true
     Prefix: "&7[&bChannel B&7]"
+    Command: "channela"
   Channel C:
     Permission Required: false
     Prefix: "&7[&bChannel C&7]"
