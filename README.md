@@ -57,6 +57,7 @@ If you have any ideas or suggestions please post them as an issue!
 * Remember players channels option - If they player re-logs or the server restarts/reloads the player will be on the same channel.
 * Fixed players been in "null" channel on reload.
 * On-the-fly channels - Easily create and manage channels without even opening the config.
+* Added a "fallback" command if the plugin fails to start
 
 #### Version 1.0
 * Initial Release.

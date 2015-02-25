@@ -1,6 +1,7 @@
 package com.connorlinfoot.betterchat;
 
 import com.connorlinfoot.betterchat.Commands.ChannelCommand;
+import com.connorlinfoot.betterchat.Commands.FallbackCommand;
 import com.connorlinfoot.betterchat.Commands.StaffChatCommand;
 import com.connorlinfoot.betterchat.Listeners.Chat;
 import com.connorlinfoot.betterchat.Listeners.PlayerCommand;
@@ -25,6 +26,7 @@ public class BetterChat extends JavaPlugin implements Listener {
         ConsoleCommandSender console = server.getConsoleSender();
 
         if (!getConfig().isSet("Channels." + getConfig().getString("Settings.Default Channel") + ".Permission Required")) {
+            registerCommands(true);
             console.sendMessage("");
             console.sendMessage(ChatColor.BLUE + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
             console.sendMessage("");
@@ -37,7 +39,7 @@ public class BetterChat extends JavaPlugin implements Listener {
         }
 
         registerEvents();
-        registerCommands();
+        registerCommands(false);
 
         console.sendMessage("");
         console.sendMessage(ChatColor.BLUE + "-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
@@ -65,7 +67,12 @@ public class BetterChat extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new PlayerCommand(), this);
     }
 
-    private void registerCommands() {
+    private void registerCommands(boolean fallback) {
+        if (fallback) {
+            Bukkit.getPluginCommand("channel").setExecutor(new FallbackCommand());
+            Bukkit.getPluginCommand("staffchat").setExecutor(new FallbackCommand());
+            return;
+        }
         Bukkit.getPluginCommand("channel").setExecutor(new ChannelCommand());
         Bukkit.getPluginCommand("staffchat").setExecutor(new StaffChatCommand());
     }

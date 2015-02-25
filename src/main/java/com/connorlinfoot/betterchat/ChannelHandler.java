@@ -1,5 +1,6 @@
 package com.connorlinfoot.betterchat;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -55,6 +56,28 @@ public class ChannelHandler {
         if (!channelExists(channel)) return;
         BetterChat.betterChat.getConfig().set("Channels." + channel, null);
         BetterChat.betterChat.saveConfig();
+    }
+
+    public static void channelInfo(String channel, Player player) {
+        channelInfo(channel, player, false);
+    }
+
+    public static void channelInfo(String channel, Player player, boolean GUI) {
+        if (GUI) return; // TODO add a GUI for viewing channel information
+        if (player == null) return;
+        if (!channelExists(channel)) return;
+
+        String prefix = "None";
+        if (BetterChat.betterChat.getConfig().isSet("Channels." + channel + ".Prefix")) {
+            prefix = BetterChat.betterChat.getConfig().getString("Channels." + channel + ".Prefix");
+        }
+        prefix = ChatColor.translateAlternateColorCodes('&', prefix);
+
+        player.sendMessage("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+        player.sendMessage(ChatColor.AQUA + "Channel Name: " + channel);
+        player.sendMessage(ChatColor.AQUA + "Permissions Required: " + BetterChat.betterChat.getConfig().getBoolean("Channels." + channel + ".Permission Required"));
+        player.sendMessage(ChatColor.AQUA + "Custom Prefix: " + prefix);
+        player.sendMessage("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "--------------------------------------------");
     }
 
 }

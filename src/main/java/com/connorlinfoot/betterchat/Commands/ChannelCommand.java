@@ -28,7 +28,7 @@ public class ChannelCommand implements CommandExecutor {
             if (isAdmin) player.sendMessage(ChatColor.AQUA + "/channel create <name> - Create a channel");
             if (isAdmin) player.sendMessage(ChatColor.AQUA + "/channel delete <name> - Delete a channel");
 //            if( isAdmin ) player.sendMessage(ChatColor.AQUA + "/channel edit <name> <option> <value> - Edit a channel option");
-//            if( isAdmin ) player.sendMessage(ChatColor.AQUA + "/channel info <name> - View information on a channel");
+            if (isAdmin) player.sendMessage(ChatColor.AQUA + "/channel info <name> - View information on a channel");
             return true;
         }
 
@@ -89,6 +89,34 @@ public class ChannelCommand implements CommandExecutor {
 
             ChannelHandler.deleteChannel(channel);
             player.sendMessage(ChatColor.GREEN + "The channel \"" + channel + "\" has been deleted");
+        }
+
+        if (args[0].equalsIgnoreCase("info")) {
+            if (!isAdmin) {
+                player.sendMessage(ChatColor.RED + "You do not have permission to run this");
+                return false;
+            }
+
+            if (args.length < 2) {
+                player.sendMessage(ChatColor.RED + "Correct Usage: /channel info <name>");
+                return false;
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            for (String value : args) {
+                stringBuilder.append(value).append(" ");
+            }
+
+            String channel = stringBuilder.toString();
+            channel = channel.replaceFirst(args[0] + " " + args[1] + " ", "");
+            channel = channel.replaceAll("\\s+$", "");
+
+            if (!ChannelHandler.channelExists(channel)) {
+                player.sendMessage(ChatColor.RED + "That channel doesn't exist");
+                return false;
+            }
+
+            ChannelHandler.channelInfo(channel, player);
         }
 
         StringBuilder stringBuilder = new StringBuilder();
