@@ -14,3 +14,5 @@ permissions:
     default: op
   betterchat.all:
     default: op
+  betterchat.admin:
+    default: op

@@ -28,6 +28,7 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * ~~Add color code support~~
 * ~~Add a option for default channel~~
 * Many more planned features will be added.
+* Drink beer.
 
 
 ### Commands
@@ -55,6 +56,7 @@ If you have any ideas or suggestions please post them as an issue!
 * Custom channel commands - /<channel> <message>.
 * Remember players channels option - If they player re-logs or the server restarts/reloads the player will be on the same channel.
 * Fixed players been in "null" channel on reload.
+* On-the-fly channels - Easily create and manage channels without even opening the config.
 
 #### Version 1.0
 * Initial Release.

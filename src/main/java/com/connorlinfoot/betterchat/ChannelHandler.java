@@ -45,4 +45,16 @@ public class ChannelHandler {
             playerChannels.remove(player.getUniqueId().toString());
     }
 
+    public static void createChannel(String channel) {
+        if (channelExists(channel)) return;
+        BetterChat.betterChat.getConfig().set("Channels." + channel + ".Permission Required", false);
+        BetterChat.betterChat.saveConfig();
+    }
+
+    public static void deleteChannel(String channel) {
+        if (!channelExists(channel)) return;
+        BetterChat.betterChat.getConfig().set("Channels." + channel, null);
+        BetterChat.betterChat.saveConfig();
+    }
+
 }
