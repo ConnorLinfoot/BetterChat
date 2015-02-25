@@ -18,9 +18,9 @@ public class ChannelHandler {
     }
 
     public static String getPlayerChannel(Player player) {
-        if (playerChannels.containsKey(player.getUniqueId().toString()))
-            return playerChannels.get(player.getUniqueId().toString());
-        return null;
+        if (!playerChannels.containsKey(player.getUniqueId().toString()))
+            playerChannels.put(player.getUniqueId().toString(), BetterChat.betterChat.getConfig().getString("Settings.Default Channel"));
+        return playerChannels.get(player.getUniqueId().toString());
     }
 
     public static boolean isInChannel(Player player, String channel) {
