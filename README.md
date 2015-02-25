@@ -72,11 +72,13 @@ If you have any ideas or suggestions please post them as an issue!
 * Custom chat prefix per channel.
 * Custom channel commands - /\<channel\> \<message\>.
 * Remember players channels option - If the player re-logs or the server restarts/reloads the player will be on the same channel.
-* Fixed players been in "null" channel on reload.
 * On-the-fly channels - Easily create and manage channels without even opening the config.
 * Added a "fallback" command if the plugin fails to start.
 * Added the command /whatchannel to find what channel a specific player is in.
 * Added the /betterchat command as well as /betterchat reload
+
+#### Version 1.0.1
+* Fixed players been in "null" channel on reload.
 
 #### Version 1.0
 * Initial Release.
