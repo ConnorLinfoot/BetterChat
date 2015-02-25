@@ -1,9 +1,6 @@
 package com.connorlinfoot.betterchat;
 
-import com.connorlinfoot.betterchat.Commands.ChannelCommand;
-import com.connorlinfoot.betterchat.Commands.FallbackCommand;
-import com.connorlinfoot.betterchat.Commands.StaffChatCommand;
-import com.connorlinfoot.betterchat.Commands.WhatChannelCommand;
+import com.connorlinfoot.betterchat.Commands.*;
 import com.connorlinfoot.betterchat.Listeners.Chat;
 import com.connorlinfoot.betterchat.Listeners.PlayerCommand;
 import com.connorlinfoot.betterchat.Listeners.PlayerJoin;
@@ -73,10 +70,12 @@ public class BetterChat extends JavaPlugin implements Listener {
             Bukkit.getPluginCommand("channel").setExecutor(new FallbackCommand());
             Bukkit.getPluginCommand("staffchat").setExecutor(new FallbackCommand());
             Bukkit.getPluginCommand("whatchannel").setExecutor(new FallbackCommand());
+            Bukkit.getPluginCommand("betterchat").setExecutor(new FallbackCommand());
             return;
         }
         Bukkit.getPluginCommand("channel").setExecutor(new ChannelCommand());
         Bukkit.getPluginCommand("staffchat").setExecutor(new StaffChatCommand());
         Bukkit.getPluginCommand("whatchannel").setExecutor(new WhatChannelCommand());
+        Bukkit.getPluginCommand("betterchat").setExecutor(new BetterChatCommand());
     }
 }

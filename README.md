@@ -30,9 +30,9 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * ~~Permission to access ALL channels - Good for staff.~~
 * ~~Add color code support~~
 * ~~Add a option for default channel~~
+* ~~Command to find what channel a specific player is in.~~
 * On-the-fly Channels
 * Custom commands per channel - /NAME \<message\>
-* Command to find what channel a specific player is in.
 * More per channel options
 * Channel configuration GUI
 * Many more planned features will be added.
@@ -50,6 +50,7 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * /channel info \<name\> - View information on a channel. (Admin Only)
 * /staffchat \<message\> - Send a message to all staff. Aliases are /sc.
 * /whatchannel <player> - Find what channel a specific player is in.
+* /betterchat reload - Reload the configuration.
 
 
 ### Permissions
@@ -74,6 +75,8 @@ If you have any ideas or suggestions please post them as an issue!
 * Fixed players been in "null" channel on reload.
 * On-the-fly channels - Easily create and manage channels without even opening the config.
 * Added a "fallback" command if the plugin fails to start.
+* Added the command /whatchannel to find what channel a specific player is in.
+* Added the /betterchat command as well as /betterchat reload
 
 #### Version 1.0
 * Initial Release.

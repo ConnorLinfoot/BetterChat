@@ -12,6 +12,8 @@ commands:
   whatchannel:
     description: Find what channel a specific player is in
     aliases: [wc]
+  betterchat:
+    description: The main BetterChat command
 permissions:
   betterchat.staff:
     default: op
