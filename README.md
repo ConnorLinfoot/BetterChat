@@ -14,8 +14,8 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 
 ### Requirements
 * Bukkit/Spigot 1.7.5 - 1.8 (Not BungeeCord)
-* Optional: BountifulAPI - http://www.spigotmc.org/resources/bountifulapi.1394/
-* Optional: BarAPI - http://dev.bukkit.org/bukkit-plugins/bar-api/
+<* Optional: BountifulAPI - http://www.spigotmc.org/resources/bountifulapi.1394/>
+<* Optional: BarAPI - http://dev.bukkit.org/bukkit-plugins/bar-api/>
 
 
 ### Features
@@ -35,11 +35,11 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * Custom commands per channel - /NAME \<message\>
 * More per channel options
 * Channel configuration GUI
-* Many more planned features will be added.
-* BountifulAPI support.
-* BarAPI support.
+* BountifulAPI support. (Maybe)
+* BarAPI support. (Maybe)
 * Older version support, such as 1.6 and 1.5. (Maybe)
 * BungeeCord edition of this plugin.
+* Many more planned features will be added.
 * Drink beer.
 
 
