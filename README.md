@@ -31,13 +31,14 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * ~~Add color code support~~
 * ~~Add a option for default channel~~
 * On-the-fly Channels
-* More per channel options
-* Channel configuration GUI
 * Custom commands per channel - /NAME \<message\>
 * Command to find what channel a specific player is in.
+* More per channel options
+* Channel configuration GUI
 * Many more planned features will be added.
-* BountifulAPI Support.
-* BarAPI Support.
+* BountifulAPI support.
+* BarAPI support.
+* Older version support, such as 1.6 and 1.5. (Maybe)
 * BungeeCord edition of this plugin.
 * Drink beer.
 
@@ -48,6 +49,7 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * /channel delete \<name\> - Delete a channel. (Admin Only)
 * /channel info \<name\> - View information on a channel. (Admin Only)
 * /staffchat \<message\> - Send a message to all staff. Aliases are /sc.
+* /whatchannel <player> - Find what channel a specific player is in.
 
 
 ### Permissions
