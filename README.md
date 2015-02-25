@@ -14,8 +14,8 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 
 ### Requirements
 * Bukkit/Spigot 1.7.5 - 1.8 (Not BungeeCord)
-<* Optional: BountifulAPI - http://www.spigotmc.org/resources/bountifulapi.1394/>
-<* Optional: BarAPI - http://dev.bukkit.org/bukkit-plugins/bar-api/>
+* Optional: BountifulAPI - http://www.spigotmc.org/resources/bountifulapi.1394/ (Not yet used)
+* Optional: BarAPI - http://dev.bukkit.org/bukkit-plugins/bar-api/ (Not yet used)
 
 
 ### Features
