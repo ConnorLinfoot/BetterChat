@@ -49,7 +49,7 @@ public class ChannelCommand implements CommandExecutor {
             }
 
             String channel = stringBuilder.toString();
-            channel = channel.replaceFirst(args[0] + " " + args[1] + " ", "");
+            channel = channel.replaceFirst(args[0] + " ", "");
             channel = channel.replaceAll("\\s+$", "");
 
             if (ChannelHandler.channelExists(channel)) {
@@ -79,7 +79,7 @@ public class ChannelCommand implements CommandExecutor {
             }
 
             String channel = stringBuilder.toString();
-            channel = channel.replaceFirst(args[0] + " " + args[1] + " ", "");
+            channel = channel.replaceFirst(args[0] + " ", "");
             channel = channel.replaceAll("\\s+$", "");
 
             if (!ChannelHandler.channelExists(channel)) {
@@ -89,6 +89,7 @@ public class ChannelCommand implements CommandExecutor {
 
             ChannelHandler.deleteChannel(channel);
             player.sendMessage(ChatColor.GREEN + "The channel \"" + channel + "\" has been deleted");
+            return true;
         }
 
         if (args[0].equalsIgnoreCase("info")) {

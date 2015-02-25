@@ -4,6 +4,7 @@ import com.connorlinfoot.betterchat.BetterChat;
 import com.connorlinfoot.betterchat.ChannelHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,25 +15,26 @@ public class PlayerCommand implements Listener {
     @EventHandler
     public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
         if (event.isCancelled()) return;
-        for (String channel : BetterChat.betterChat.getConfig().getStringList("Channels")) {
+        ConfigurationSection channels = BetterChat.betterChat.getConfig().getConfigurationSection("Channels");
+        for (String channel : channels.getKeys(false)) {
             if (BetterChat.betterChat.getConfig().isSet("Channels." + channel + ".Command")) {
                 String command = BetterChat.betterChat.getConfig().getString("Channels." + channel + ".Command");
-                if (event.getMessage().equalsIgnoreCase(command)) {
-                    String[] args = event.getMessage().split("\\s+");
+                String[] args = event.getMessage().split("\\s+");
+                if (args[0].equalsIgnoreCase("/" + command)) {
                     Player player = event.getPlayer();
                     event.setCancelled(true);
 
                     if (ChannelHandler.channelUsesPerms(channel) && !player.hasPermission("betterchat.channel." + channel) && !player.hasPermission("betterchat.all")) {
-                        player.sendMessage(ChatColor.RED + "You don't have permission to join this channel");
+                        player.sendMessage(ChatColor.RED + "You don't have permission to talk in this channel");
                         return;
                     }
 
-                    if (args.length == 0) {
+                    if (args.length == 1) {
                         player.sendMessage(ChatColor.RED + "Correct Usage: /" + command + " <message>");
                         return;
                     }
 
-                    String message = event.getMessage().replaceFirst(args[0] + " ", event.getMessage());
+                    String message = event.getMessage().replaceFirst(args[0] + " ", "");
                     if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
                         message = ChatColor.translateAlternateColorCodes('&', message);
                     }
@@ -45,7 +47,7 @@ public class PlayerCommand implements Listener {
 
                     for (Player player1 : Bukkit.getOnlinePlayers()) {
                         if (player1.hasPermission("betterchat.channel." + channel)) {
-                            player1.sendMessage(prefix + " " + ChatColor.GOLD + player.getDisplayName() + " " + ChatColor.RESET + message);
+                            player1.sendMessage(prefix + " " + ChatColor.GOLD + player.getDisplayName() + ChatColor.RESET + ": " + message);
                         }
                     }
                 }

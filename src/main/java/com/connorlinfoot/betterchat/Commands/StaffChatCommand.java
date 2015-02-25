@@ -45,7 +45,7 @@ public class StaffChatCommand implements CommandExecutor {
         String prefix = ChatColor.translateAlternateColorCodes('&', BetterChat.betterChat.getConfig().getString("Settings.Staff Chat Prefix"));
         for (Player player1 : Bukkit.getOnlinePlayers()) {
             if (player1.hasPermission("betterchat.staff")) {
-                player1.sendMessage(prefix + " " + ChatColor.GOLD + player.getDisplayName() + " " + ChatColor.RESET + message);
+                player1.sendMessage(prefix + " " + ChatColor.GOLD + player.getDisplayName() + ChatColor.RESET + ": " + message);
             }
         }
 
