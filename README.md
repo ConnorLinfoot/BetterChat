@@ -41,3 +41,18 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * betterchat.all - Access to join ALL channels, defaults to OP.
 
 If you have any ideas or suggestions please post them as an issue!
+
+
+### Changelogs
+
+#### Version 1.1 (In Progress)
+* Custom Staff Chat Prefix.
+* Chat color codes in staff chat and normal chat.
+* Added player name to staff chat.
+* Permission to access all channels - betterchat.all.
+* Config option to set default channel
+
+#### Version 1.0
+* Initial Release.
+* Staff Chat.
+* Custom Channels and /channel command.

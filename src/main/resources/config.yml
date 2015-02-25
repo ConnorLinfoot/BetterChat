@@ -6,6 +6,7 @@
 
 Settings:
   Staff Chat Enabled: true
+  Staff Chat Prefix: "&7[&bStaff Chat&7]"
   Default Channel: Default
   Enable Chat Color: true
 
@@ -14,7 +15,10 @@ Channels:
     Permission Required: false
   Channel A:
     Permission Required: true
+    Prefix: "&7[&bChannel A&7]"
   Channel B:
     Permission Required: true
+    Prefix: "&7[&bChannel B&7]"
   Channel C:
     Permission Required: false
+    Prefix: "&7[&bChannel C&7]"
