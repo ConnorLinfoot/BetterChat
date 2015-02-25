@@ -38,3 +38,14 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * betterchat.staff - Access to staff chat, including staff chat commands.
 
 If you have any ideas or suggestions please post them as an issue!
+
+
+### Changelogs
+
+#### Version 1.0.1
+* Fixed players been in "null" channel on reload.
+
+#### Version 1.0
+* Initial Release.
+* Staff Chat.
+* Custom Channels and /channel command.
