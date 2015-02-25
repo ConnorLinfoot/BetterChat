@@ -31,14 +31,14 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * ~~Add color code support~~
 * ~~Add a option for default channel~~
 * ~~Command to find what channel a specific player is in.~~
-* On-the-fly Channels
-* Custom commands per channel - /NAME \<message\>
+* ~~On-the-fly Channels~~
+* ~~Custom commands per channel - /NAME \<message\>~~
 * More per channel options
 * Channel configuration GUI
 * BountifulAPI support. (Maybe)
 * BarAPI support. (Maybe)
 * Older version support, such as 1.6 and 1.5. (Maybe)
-* BungeeCord edition of this plugin.
+* BungeeCord edition of this plugin. (Hopefully)
 * Many more planned features will be added.
 * Drink beer.
 

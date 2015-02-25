@@ -22,7 +22,7 @@ public class WhatChannelCommand implements CommandExecutor {
             return false;
         }
 
-        sender.sendMessage(ChatColor.GREEN + "The player " + player.getName() + " is in the " + ChannelHandler.getPlayerChannel(player) + " channel");
+        sender.sendMessage(ChatColor.GREEN + "The player \"" + player.getName() + "\" is in the \"" + ChannelHandler.getPlayerChannel(player) + "\" channel");
         return true;
     }
 
