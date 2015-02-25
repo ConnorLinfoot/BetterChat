@@ -50,7 +50,8 @@ If you have any ideas or suggestions please post them as an issue!
 * Chat color codes in staff chat and normal chat.
 * Added player name to staff chat.
 * Permission to access all channels - betterchat.all.
-* Config option to set default channel
+* Config option to set default channel.
+* Custom chat prefix per channel.
 
 #### Version 1.0
 * Initial Release.

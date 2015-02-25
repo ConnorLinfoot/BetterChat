@@ -15,6 +15,11 @@ public class Chat implements Listener {
         Player player = event.getPlayer();
 
         String channel = ChannelHandler.getPlayerChannel(player);
+        if (BetterChat.betterChat.getConfig().isSet("Channels." + channel + ".Prefix")) {
+            String prefix = ChatColor.translateAlternateColorCodes('&', BetterChat.betterChat.getConfig().getString("Channels." + channel + ".Prefix"));
+            event.setFormat(prefix + " " + event.getFormat());
+        }
+
         if (BetterChat.betterChat.getConfig().isSet("Channels." + channel + ".Permission Required")
                 && !player.hasPermission("betterchat.channel." + channel)
                 && !player.hasPermission("betterchat.all")) {
