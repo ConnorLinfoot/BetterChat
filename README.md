@@ -52,6 +52,9 @@ If you have any ideas or suggestions please post them as an issue!
 * Permission to access all channels - betterchat.all.
 * Config option to set default channel.
 * Custom chat prefix per channel.
+* Custom channel commands - /<channel> <message>.
+* Remember players channels option - If they player re-logs or the server restarts/reloads the player will be on the same channel.
+* Fixed players been in "null" channel on reload.
 
 #### Version 1.0
 * Initial Release.

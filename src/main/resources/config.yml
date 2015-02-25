@@ -9,6 +9,7 @@ Settings:
   Staff Chat Prefix: "&7[&bStaff Chat&7]"
   Default Channel: Default
   Enable Chat Color: true
+  Remember Player Channels: false
 
 Channels:
   Default:

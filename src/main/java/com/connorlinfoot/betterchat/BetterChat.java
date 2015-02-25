@@ -5,6 +5,7 @@ import com.connorlinfoot.betterchat.Commands.StaffChatCommand;
 import com.connorlinfoot.betterchat.Listeners.Chat;
 import com.connorlinfoot.betterchat.Listeners.PlayerCommand;
 import com.connorlinfoot.betterchat.Listeners.PlayerJoin;
+import com.connorlinfoot.betterchat.Listeners.PlayerQuit;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
@@ -60,6 +61,7 @@ public class BetterChat extends JavaPlugin implements Listener {
     private void registerEvents() {
         Bukkit.getPluginManager().registerEvents(new Chat(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoin(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerQuit(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerCommand(), this);
     }
 
