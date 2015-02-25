@@ -1,5 +1,6 @@
 package com.connorlinfoot.betterchat;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -78,6 +79,18 @@ public class ChannelHandler {
         player.sendMessage(ChatColor.AQUA + "Permissions Required: " + BetterChat.betterChat.getConfig().getBoolean("Channels." + channel + ".Permission Required"));
         player.sendMessage(ChatColor.AQUA + "Custom Prefix: " + prefix);
         player.sendMessage("" + ChatColor.AQUA + ChatColor.STRIKETHROUGH + "--------------------------------------------");
+    }
+
+    public static Player[] getAllPlayersInChannel(String channel) {
+        Player[] players = new Player[0];
+        Integer i = 0;
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (getPlayerChannel(player).equals(channel)) {
+                players[i] = player;
+                i++;
+            }
+        }
+        return players;
     }
 
 }

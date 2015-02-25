@@ -4,11 +4,18 @@ BetterChat
 [![Build Status](http://ci.connorlinfoot.com:8080/buildStatus/icon?job=BetterChat)](http://ci.connorlinfoot.com:8080/job/BetterChat/)
 
 BetterChat allows multiple custom chat channels as well as a staff chat.
-This plugin is currently in development!
+
+This plugin is for Bukkit/Spigot. It will NOT work with BungeeCord.
 
 
 ### Latest Release
 You can download the latest "stable" release of BetterChat on Spigot: http://www.spigotmc.org/resources/betterchat.4372/
+
+
+### Requirements
+* Bukkit/Spigot 1.7.5 - 1.8 (Not BungeeCord)
+* Optional: BountifulAPI - http://www.spigotmc.org/resources/bountifulapi.1394/
+* Optional: BarAPI - http://dev.bukkit.org/bukkit-plugins/bar-api/
 
 
 ### Features
@@ -20,19 +27,26 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 ### TODO
 * ~~Custom Chat Channels~~
 * ~~Staff Chat~~
-* On-the-fly Channels
 * ~~Permission to access ALL channels - Good for staff.~~
+* ~~Add color code support~~
+* ~~Add a option for default channel~~
+* On-the-fly Channels
 * More per channel options
 * Channel configuration GUI
 * Custom commands per channel - /NAME \<message\>
-* ~~Add color code support~~
-* ~~Add a option for default channel~~
+* Command to find what channel a specific player is in.
 * Many more planned features will be added.
+* BountifulAPI Support.
+* BarAPI Support.
+* BungeeCord edition of this plugin.
 * Drink beer.
 
 
 ### Commands
-* /channel [channel name] - Switch what channel you are currently talking in. If you don't specify a channel name it will give you information on your current channel. Aliases are /switchchannel and /c.
+* /channel [channel name] - Switch what channel you are currently talking in.
+* /channel create \<name\> - Create a new channel. (Admin Only)
+* /channel delete \<name\> - Delete a channel. (Admin Only)
+* /channel info \<name\> - View information on a channel. (Admin Only)
 * /staffchat \<message\> - Send a message to all staff. Aliases are /sc.
 
 
@@ -53,11 +67,11 @@ If you have any ideas or suggestions please post them as an issue!
 * Permission to access all channels - betterchat.all.
 * Config option to set default channel.
 * Custom chat prefix per channel.
-* Custom channel commands - /<channel> <message>.
-* Remember players channels option - If they player re-logs or the server restarts/reloads the player will be on the same channel.
+* Custom channel commands - /\<channel\> \<message\>.
+* Remember players channels option - If the player re-logs or the server restarts/reloads the player will be on the same channel.
 * Fixed players been in "null" channel on reload.
 * On-the-fly channels - Easily create and manage channels without even opening the config.
-* Added a "fallback" command if the plugin fails to start
+* Added a "fallback" command if the plugin fails to start.
 
 #### Version 1.0
 * Initial Release.

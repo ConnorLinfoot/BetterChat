@@ -1,9 +1,6 @@
 # BetterChat
 # Version ${project.version}
-# Please report bugs as an issue here: https://github.com/connorlinfoot/BetterChat
-#
-# You MUST have a default channel. If the default channel is removed the plugin will not start!
-# You can NOT use the channel name "create" or "edit" or "delete" or "info" or "help" as these are used as command arguments.
+# Please read documentation on using the plugin here: https://github.com/connorlinfoot/BetterChat
 
 Settings:
   Staff Chat Enabled: true
