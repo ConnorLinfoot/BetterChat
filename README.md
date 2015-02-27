@@ -33,6 +33,11 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * ~~Command to find what channel a specific player is in.~~
 * ~~On-the-fly Channels~~
 * ~~Custom commands per channel - /NAME \<message\>~~
+* Anti-Swear Filter
+* Anti-Spam system
+* Player Muting
+* Player banning from channel(s)
+* Chat mention notifications
 * More per channel options
 * Channel configuration GUI
 * BountifulAPI support. (Maybe)
@@ -63,7 +68,7 @@ If you have any ideas or suggestions please post them as an issue!
 
 ### Changelogs
 
-#### Version 1.1 (In Progress)
+#### Version 1.1
 * Custom Staff Chat Prefix.
 * Chat color codes in staff chat and normal chat.
 * Added player name to staff chat.
