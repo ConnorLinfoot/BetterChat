@@ -3,6 +3,7 @@ package com.connorlinfoot.betterchat.Listeners;
 import com.connorlinfoot.betterchat.BetterChat;
 import com.connorlinfoot.betterchat.ChannelHandler;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,9 +33,16 @@ public class Chat implements Listener {
             event.setMessage(ChatColor.translateAlternateColorCodes('&', event.getMessage()));
         }
 
+        boolean playerMentions = BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Player Mentions");
         for (Player player1 : event.getRecipients()) {
             if (!ChannelHandler.isInChannel(player1, channel)) {
                 event.getRecipients().remove(player1);
+            }
+
+            if (playerMentions) {
+                if (event.getMessage().toLowerCase().contains(" " + player1.getName().toLowerCase())) {
+                    player1.playSound(player1.getLocation(), Sound.CHEST_OPEN, 1, 1);
+                }
             }
         }
     }

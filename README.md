@@ -68,6 +68,9 @@ If you have any ideas or suggestions please post them as an issue!
 
 ### Changelogs
 
+#### Version 1.2 (In progress)
+* Added Player Mentions
+
 #### Version 1.1
 * Custom Staff Chat Prefix.
 * Chat color codes in staff chat and normal chat.
