@@ -29,20 +29,22 @@ public class Chat implements Listener {
             return;
         }
 
-        /* Spam Filter - Check last message sent */
-        if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
-            if (event.getMessage().equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
-                player.sendMessage(ChatColor.RED + "You already sent that message");
-                event.setCancelled(true);
-                return;
+        if (BetterChat.betterChat.getConfig().getBoolean("Spam Filter.Enable Same Message Blocking")) {
+            /* Spam Filter - Check last message sent */
+            if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
+                if (event.getMessage().equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
+                    player.sendMessage(ChatColor.RED + "You already sent that message");
+                    event.setCancelled(true);
+                    return;
+                }
             }
+
+            /* Spam Filter - Add to last messages sent */
+            ChannelHandler.lastMessages.put(player.getUniqueId().toString(), event.getMessage());
         }
 
-        /* Spam Filter - Add to last messages sent */
-        ChannelHandler.lastMessages.put(player.getUniqueId().toString(), event.getMessage());
-
         /* Swear Filter */
-        if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Swear Filter")) {
+        if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Swear Filter")) {
             boolean captured = false;
             if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Strict Swear Filter")) {
                 for (String string : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {

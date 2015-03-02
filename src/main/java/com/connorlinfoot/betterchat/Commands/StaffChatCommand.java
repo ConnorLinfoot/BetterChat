@@ -41,20 +41,21 @@ public class StaffChatCommand implements CommandExecutor {
 
         String message = stringBuilder.toString();
 
-
-        /* Spam Filter - Check last message sent */
-        if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
-            if (message.equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
-                player.sendMessage(ChatColor.RED + "You already sent that message");
-                return false;
+        if (BetterChat.betterChat.getConfig().getBoolean("Spam Filter.Enable Same Message Blocking")) {
+            /* Spam Filter - Check last message sent */
+            if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
+                if (message.equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
+                    player.sendMessage(ChatColor.RED + "You already sent that message");
+                    return false;
+                }
             }
+
+            /* Spam Filter - Add to last messages sent */
+            ChannelHandler.lastMessages.put(player.getUniqueId().toString(), message);
         }
 
-        /* Spam Filter - Add to last messages sent */
-        ChannelHandler.lastMessages.put(player.getUniqueId().toString(), message);
-
         /* Swear Filter */
-        if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Swear Filter")) {
+        if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Swear Filter")) {
             boolean captured = false;
             if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Strict Swear Filter")) {
                 for (String string1 : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {

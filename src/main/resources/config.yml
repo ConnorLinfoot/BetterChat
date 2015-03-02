@@ -9,14 +9,18 @@ Settings:
   Enable Chat Color: true
   Remember Player Channels: false
   Enable Player Mentions: true
-  Enable Swear Filter: true
 
 Swear Filter:
+  Enable Swear Filter: true
   Enable Strict Swear Filter: false
   Words To Sensor:
     - fuck
     - bitch
     - whore
+
+Spam Filter:
+  Enable Same Message Blocking: true
+  Enable Web Address and IP blocking: true
 
 Channels:
   Default:
