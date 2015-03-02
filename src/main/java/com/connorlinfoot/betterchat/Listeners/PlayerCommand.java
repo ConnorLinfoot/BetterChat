@@ -36,6 +36,46 @@ public class PlayerCommand implements Listener {
                     }
 
                     String message = event.getMessage().replaceFirst(args[0] + " ", "");
+
+                    /* Spam Filter - Check last message sent */
+                    if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
+                        if (message.equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
+                            player.sendMessage(ChatColor.RED + "You already sent that message");
+                            event.setCancelled(true);
+                            return;
+                        }
+                    }
+
+                    /* Spam Filter - Add to last messages sent */
+                    ChannelHandler.lastMessages.put(player.getUniqueId().toString(), message);
+
+                    /* Swear Filter */
+                    if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Swear Filter")) {
+                        boolean captured = false;
+                        if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Strict Swear Filter")) {
+                            for (String string : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {
+                                if (message.toLowerCase().contains(string.toLowerCase())) {
+                                    captured = true;
+                                    break;
+                                }
+                            }
+                        } else {
+                            for (String string : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {
+                                String message1 = " " + message + " ";
+                                if (message1.toLowerCase().contains(" " + string.toLowerCase() + " ")) {
+                                    captured = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (captured) {
+                            player.sendMessage(ChatColor.RED + "Please do not use bad language on the server");
+                            event.setCancelled(true);
+                            return;
+                        }
+                    }
+
                     if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
                         message = ChatColor.translateAlternateColorCodes('&', message);
                     }

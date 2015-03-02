@@ -29,6 +29,18 @@ public class Chat implements Listener {
             return;
         }
 
+        /* Spam Filter - Check last message sent */
+        if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
+            if (event.getMessage().equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
+                player.sendMessage(ChatColor.RED + "You already sent that message");
+                event.setCancelled(true);
+                return;
+            }
+        }
+
+        /* Spam Filter - Add to last messages sent */
+        ChannelHandler.lastMessages.put(player.getUniqueId().toString(), event.getMessage());
+
         /* Swear Filter */
         if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Swear Filter")) {
             boolean captured = false;

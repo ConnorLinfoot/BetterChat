@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 public class ChannelHandler {
 
+    public static HashMap<String, String> lastMessages = new HashMap<String, String>();
+
     private static HashMap<String, String> playerChannels = new HashMap<String, String>();
 
     public static void setPlayerChannel(Player player, String channel) {

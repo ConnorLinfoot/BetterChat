@@ -1,6 +1,7 @@
 package com.connorlinfoot.betterchat.Commands;
 
 import com.connorlinfoot.betterchat.BetterChat;
+import com.connorlinfoot.betterchat.ChannelHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -39,6 +40,45 @@ public class StaffChatCommand implements CommandExecutor {
         }
 
         String message = stringBuilder.toString();
+
+
+        /* Spam Filter - Check last message sent */
+        if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
+            if (message.equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
+                player.sendMessage(ChatColor.RED + "You already sent that message");
+                return false;
+            }
+        }
+
+        /* Spam Filter - Add to last messages sent */
+        ChannelHandler.lastMessages.put(player.getUniqueId().toString(), message);
+
+        /* Swear Filter */
+        if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Swear Filter")) {
+            boolean captured = false;
+            if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Strict Swear Filter")) {
+                for (String string1 : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {
+                    if (message.toLowerCase().contains(string1.toLowerCase())) {
+                        captured = true;
+                        break;
+                    }
+                }
+            } else {
+                for (String string1 : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {
+                    String message1 = " " + message + " ";
+                    if (message1.toLowerCase().contains(" " + string1.toLowerCase() + " ")) {
+                        captured = true;
+                        break;
+                    }
+                }
+            }
+
+            if (captured) {
+                player.sendMessage(ChatColor.RED + "Please do not use bad language on the server");
+                return false;
+            }
+        }
+
         if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
             message = ChatColor.translateAlternateColorCodes('&', message);
         }

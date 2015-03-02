@@ -71,6 +71,7 @@ If you have any ideas or suggestions please post them as an issue!
 #### Version 1.2 (In progress)
 * Added Player Mentions
 * Added a swear filter - words and settings can be found in the config.yml
+* Added some spam filter options
 
 #### Version 1.1
 * Custom Staff Chat Prefix.
