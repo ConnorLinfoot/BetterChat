@@ -29,6 +29,33 @@ public class Chat implements Listener {
             return;
         }
 
+        /* Swear Filter */
+        if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Swear Filter")) {
+            boolean captured = false;
+            if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Strict Swear Filter")) {
+                for (String string : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {
+                    if (event.getMessage().toLowerCase().contains(string.toLowerCase())) {
+                        captured = true;
+                        break;
+                    }
+                }
+            } else {
+                for (String string : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {
+                    String message1 = " " + event.getMessage() + " ";
+                    if (message1.toLowerCase().contains(" " + string.toLowerCase() + " ")) {
+                        captured = true;
+                        break;
+                    }
+                }
+            }
+
+            if (captured) {
+                player.sendMessage(ChatColor.RED + "Please do not use bad language on the server");
+                event.setCancelled(true);
+                return;
+            }
+        }
+
         if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
             event.setMessage(ChatColor.translateAlternateColorCodes('&', event.getMessage()));
         }

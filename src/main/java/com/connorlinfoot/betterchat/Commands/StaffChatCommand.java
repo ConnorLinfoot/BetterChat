@@ -3,6 +3,7 @@ package com.connorlinfoot.betterchat.Commands;
 import com.connorlinfoot.betterchat.BetterChat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -43,9 +44,15 @@ public class StaffChatCommand implements CommandExecutor {
         }
 
         String prefix = ChatColor.translateAlternateColorCodes('&', BetterChat.betterChat.getConfig().getString("Settings.Staff Chat Prefix"));
+        boolean playerMentions = BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Player Mentions");
         for (Player player1 : Bukkit.getOnlinePlayers()) {
             if (player1.hasPermission("betterchat.staff")) {
                 player1.sendMessage(prefix + " " + ChatColor.GOLD + player.getDisplayName() + ChatColor.RESET + ": " + message);
+                if (playerMentions) {
+                    if (message.toLowerCase().contains(" " + player1.getName().toLowerCase())) {
+                        player1.playSound(player1.getLocation(), Sound.CHEST_OPEN, 1, 1);
+                    }
+                }
             }
         }
 
