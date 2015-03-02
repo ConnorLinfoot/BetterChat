@@ -37,7 +37,7 @@ public class PlayerCommand implements Listener {
 
                     String message = event.getMessage().replaceFirst(args[0] + " ", "");
 
-                    if (BetterChat.betterChat.getConfig().getBoolean("Spam Filter.Enable Same Message Blocking")) {
+                    if (BetterChat.betterChat.getConfig().getBoolean("Spam Filter.Enable Same Message Blocking") && !player.hasPermission("betterchat.staff")) {
                         /* Spam Filter - Check last message sent */
                         if (ChannelHandler.lastMessages.containsKey(player.getUniqueId().toString())) {
                             if (message.equalsIgnoreCase(ChannelHandler.lastMessages.get(player.getUniqueId().toString()))) {
@@ -52,7 +52,7 @@ public class PlayerCommand implements Listener {
                     }
 
                     /* Swear Filter */
-                    if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Swear Filter")) {
+                    if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Swear Filter") && !player.hasPermission("betterchat.staff")) {
                         boolean captured = false;
                         if (BetterChat.betterChat.getConfig().getBoolean("Swear Filter.Enable Strict Swear Filter")) {
                             for (String string : BetterChat.betterChat.getConfig().getStringList("Swear Filter.Words To Sensor")) {
