@@ -14,6 +14,7 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 
 ### Requirements
 * Bukkit/Spigot 1.7 - 1.9
+* Java 7+
 
 
 ### Features
