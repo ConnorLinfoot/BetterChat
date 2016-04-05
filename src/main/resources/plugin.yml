@@ -14,6 +14,8 @@ commands:
     aliases: [wc]
   betterchat:
     description: The main BetterChat command
+  mute:
+    description: Mute players from talking in any channel
 permissions:
   betterchat.staff:
     default: op

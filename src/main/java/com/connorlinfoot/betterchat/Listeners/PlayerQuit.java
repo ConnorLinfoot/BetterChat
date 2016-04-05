@@ -9,11 +9,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerQuit implements Listener {
 
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        if (!BetterChat.betterChat.getConfig().getBoolean("Settings.Remember Player Channels"))
-            ChannelHandler.clearChannel(player);
-    }
+	@EventHandler
+	public void onPlayerQuit(PlayerQuitEvent event) {
+		Player player = event.getPlayer();
+		if (!BetterChat.betterChat.getConfig().getBoolean("Settings.Remember Player Channels"))
+			ChannelHandler.clearChannel(player);
+	}
 
 }
