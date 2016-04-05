@@ -2,12 +2,16 @@ package com.connorlinfoot.betterchat.Listeners;
 
 import com.connorlinfoot.betterchat.BetterChat;
 import com.connorlinfoot.betterchat.ChannelHandler;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class Chat implements Listener {
 
@@ -75,16 +79,23 @@ public class Chat implements Listener {
 		}
 
 		boolean playerMentions = BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Player Mentions");
+		ArrayList<UUID> remove = new ArrayList<UUID>();
 		for (Player player1 : event.getRecipients()) {
-			if (!ChannelHandler.isInChannel(player1, channel)) {
-				event.getRecipients().remove(player1);
-			}
+			if (!ChannelHandler.isInChannel(player1, channel))
+				remove.add(player1.getUniqueId());
 
 			if (playerMentions) {
 				if (event.getMessage().toLowerCase().contains(" " + player1.getName().toLowerCase())) {
 					player1.playSound(player1.getLocation(), Sound.CHEST_OPEN, 1, 1);
 				}
 			}
+		}
+
+		for (UUID uuid : remove) {
+			Player player1 = Bukkit.getPlayer(uuid);
+			if (player1 == null)
+				continue;
+			event.getRecipients().remove(player);
 		}
 	}
 
