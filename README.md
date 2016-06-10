@@ -5,23 +5,17 @@ BetterChat
 
 BetterChat allows multiple custom chat channels as well as a staff chat.
 
-This plugin is for Bukkit/Spigot. It currently does not support BungeeCord.
-
-
 ### Latest Release
 You can download the latest "stable" release of BetterChat on Spigot: http://www.spigotmc.org/resources/betterchat.4372/
 
-
 ### Requirements
-* Bukkit/Spigot 1.7 - 1.9
-* Java 7+
-
+* Bukkit/Spigot/BungeeCord 1.7 - 1.10
+* Java 7 or newer
 
 ### Features
 * Staff Chat - A way for staff to talk between themselves privately.
 * Custom Chat Channels - Allow players to switch between channels where only players in that channel can see messages.
 * On-the-fly Channels - Use a command to create a channel and instantly start using it without any reboot or performance impact.
-
 
 ### TODO
 * ~~Custom Chat Channels~~
@@ -32,6 +26,7 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * ~~Command to find what channel a specific player is in.~~
 * ~~On-the-fly Channels~~
 * ~~Custom commands per channel - /NAME \<message\>~~
+* ~~BungeeCord support.~~
 * Anti-Swear Filter
 * Anti-Spam system
 * Player Muting
@@ -42,10 +37,8 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * BountifulAPI support. (Maybe)
 * BarAPI support. (Maybe)
 * Older version support, such as 1.6 and 1.5. (Maybe)
-* BungeeCord edition of this plugin. (Hopefully)
 * Many more planned features will be added.
 * Drink beer.
-
 
 ### Commands
 * /channel [channel name] - Switch what channel you are currently talking in.
@@ -56,7 +49,6 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * /whatchannel <player> - Find what channel a specific player is in.
 * /betterchat reload - Reload the configuration.
 
-
 ### Permissions
 * betterchat.channel.channelname - Replacing channelname with the name of the channel will give you the required permission to join a channel if it is enabled in the config to use permissions.
 * betterchat.staff - Access to staff chat, including staff chat commands. Defaults to OP.
@@ -64,13 +56,14 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 
 If you have any ideas or suggestions please post them as an issue!
 
+### Changelog
 
-### Changelogs
-
-#### Version 1.2 (In progress)
+#### Version 2.0 (In progress)
+* Added support for BungeeCord.
 * Added Player Mentions
 * Added a swear filter - words and settings can be found in the config.yml
 * Added some spam filter options
+
 
 #### Version 1.1
 * Custom Staff Chat Prefix.
