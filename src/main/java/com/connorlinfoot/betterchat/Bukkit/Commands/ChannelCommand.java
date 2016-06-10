@@ -1,6 +1,6 @@
-package com.connorlinfoot.betterchat.Commands;
+package com.connorlinfoot.betterchat.Bukkit.Commands;
 
-import com.connorlinfoot.betterchat.ChannelHandler;
+import com.connorlinfoot.betterchat.Bukkit.BetterChat;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -8,6 +8,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class ChannelCommand implements CommandExecutor {
+	private BetterChat betterChat;
+
+	public ChannelCommand(BetterChat betterChat) {
+		this.betterChat = betterChat;
+	}
 
 	public boolean onCommand(CommandSender sender, Command command, String string, String[] args) {
 		if (!(sender instanceof Player)) {
@@ -17,7 +22,7 @@ public class ChannelCommand implements CommandExecutor {
 
 		Player player = (Player) sender;
 		if (args.length == 0) {
-			sender.sendMessage(ChatColor.GREEN + "You are currently talking in the \"" + ChannelHandler.getPlayerChannel(player) + "\" channel");
+			sender.sendMessage(ChatColor.GREEN + "You are currently talking in the \"" + betterChat.getChannelHandler().getPlayerChannel(player.getUniqueId()) + "\" channel");
 			return true;
 		}
 
@@ -31,17 +36,17 @@ public class ChannelCommand implements CommandExecutor {
 
 				String channel = stringBuilder.toString();
 				channel = channel.replaceAll("\\s+$", "");
-				if (!ChannelHandler.channelExists(channel)) {
+				if (!betterChat.getChannelHandler().channelExists(channel)) {
 					player.sendMessage(ChatColor.RED + "The channel \"" + channel + "\" could not be found");
 					return false;
 				}
 
-				if (ChannelHandler.channelUsesPerms(channel) && !player.hasPermission("betterchat.channel." + channel) && !player.hasPermission("betterchat.all")) {
+				if (betterChat.getChannelHandler().channelUsesPerms(channel) && !player.hasPermission("betterchat.channel." + channel) && !player.hasPermission("betterchat.all")) {
 					player.sendMessage(ChatColor.RED + "You don't have permission to join this channel");
 					return false;
 				}
 
-				ChannelHandler.setPlayerChannel(player, channel, true);
+				betterChat.getChannelHandler().setPlayerChannel(player.getUniqueId(), channel, true);
 				player.sendMessage(ChatColor.GREEN + "You are now talking in the channel \"" + channel + "\"");
 				break;
 			case "help":
@@ -73,12 +78,12 @@ public class ChannelCommand implements CommandExecutor {
 				channel = channel.replaceFirst(args[0] + " ", "");
 				channel = channel.replaceAll("\\s+$", "");
 
-				if (ChannelHandler.channelExists(channel)) {
+				if (betterChat.getChannelHandler().channelExists(channel)) {
 					player.sendMessage(ChatColor.RED + "That channel already exists");
 					return false;
 				}
 
-				ChannelHandler.createChannel(channel);
+				betterChat.getChannelHandler().createChannel(channel);
 				player.sendMessage(ChatColor.GREEN + "The channel \"" + channel + "\" has been created");
 				break;
 			case "delete":
@@ -101,12 +106,12 @@ public class ChannelCommand implements CommandExecutor {
 				channel = channel.replaceFirst(args[0] + " ", "");
 				channel = channel.replaceAll("\\s+$", "");
 
-				if (!ChannelHandler.channelExists(channel)) {
+				if (!betterChat.getChannelHandler().channelExists(channel)) {
 					player.sendMessage(ChatColor.RED + "That channel doesn't exist");
 					return false;
 				}
 
-				ChannelHandler.deleteChannel(channel);
+				betterChat.getChannelHandler().deleteChannel(channel);
 				player.sendMessage(ChatColor.GREEN + "The channel \"" + channel + "\" has been deleted");
 				break;
 			case "info":
@@ -129,12 +134,12 @@ public class ChannelCommand implements CommandExecutor {
 				channel = channel.replaceFirst(args[0] + " " + args[1] + " ", "");
 				channel = channel.replaceAll("\\s+$", "");
 
-				if (!ChannelHandler.channelExists(channel)) {
+				if (!betterChat.getChannelHandler().channelExists(channel)) {
 					player.sendMessage(ChatColor.RED + "That channel doesn't exist");
 					return false;
 				}
 
-				ChannelHandler.channelInfo(channel, player);
+				betterChat.getChannelHandler().channelInfo(channel, player.getUniqueId());
 				break;
 		}
 		return true;

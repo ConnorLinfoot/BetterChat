@@ -1,0 +1,4 @@
+name: ${project.artifactId}
+description: ${project.description}
+main: com.connorlinfoot.betterchat.Bungee.BetterChat
+version: ${project.version}

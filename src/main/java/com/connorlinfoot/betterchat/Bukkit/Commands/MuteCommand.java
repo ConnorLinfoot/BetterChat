@@ -1,4 +1,4 @@
-package com.connorlinfoot.betterchat.Commands;
+package com.connorlinfoot.betterchat.Bukkit.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

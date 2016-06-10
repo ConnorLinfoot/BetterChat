@@ -1,6 +1,6 @@
-package com.connorlinfoot.betterchat.Commands;
+package com.connorlinfoot.betterchat.Bukkit.Commands;
 
-import com.connorlinfoot.betterchat.BetterChat;
+import com.connorlinfoot.betterchat.Bukkit.BetterChat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -10,9 +10,15 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class StaffChatCommand implements CommandExecutor {
+	private BetterChat betterChat;
+
+	public StaffChatCommand(BetterChat betterChat) {
+		this.betterChat = betterChat;
+	}
 
 	public boolean onCommand(CommandSender sender, Command command, String string, String[] args) {
-		if (!BetterChat.betterChat.getConfig().getBoolean("Settings.Staff Chat Enabled")) {
+		sender.sendMessage(ChatColor.YELLOW + "//TODO");
+		if (!betterChat.getConfig().getBoolean("Settings.Staff Chat Enabled")) {
 			sender.sendMessage(ChatColor.RED + "Staff chat is disabled");
 			return false;
 		}
@@ -39,12 +45,12 @@ public class StaffChatCommand implements CommandExecutor {
 		}
 
 		String message = stringBuilder.toString();
-		if (BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
+		if (betterChat.getConfig().getBoolean("Settings.Enable Chat Color")) {
 			message = ChatColor.translateAlternateColorCodes('&', message);
 		}
 
-		String prefix = ChatColor.translateAlternateColorCodes('&', BetterChat.betterChat.getConfig().getString("Settings.Staff Chat Prefix"));
-		boolean playerMentions = BetterChat.betterChat.getConfig().getBoolean("Settings.Enable Player Mentions");
+		String prefix = ChatColor.translateAlternateColorCodes('&', betterChat.getConfig().getString("Settings.Staff Chat Prefix"));
+		boolean playerMentions = betterChat.getConfig().getBoolean("Settings.Enable Player Mentions");
 		for (Player player1 : Bukkit.getOnlinePlayers()) {
 			if (player1.hasPermission("betterchat.staff")) {
 				player1.sendMessage(prefix + " " + ChatColor.GOLD + player.getDisplayName() + ChatColor.RESET + ": " + message);

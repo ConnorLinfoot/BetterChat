@@ -1,6 +1,6 @@
-name: BetterChat
-description: BetterChat allows multiple custom chat channels as well as a staff chat
-main: com.connorlinfoot.betterchat.BetterChat
+name: ${project.artifactId}
+description: ${project.description}
+main: com.connorlinfoot.betterchat.Bukkit.BetterChat
 version: ${project.version}
 commands:
   staffchat:

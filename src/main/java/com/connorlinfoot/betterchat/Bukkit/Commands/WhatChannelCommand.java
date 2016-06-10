@@ -1,6 +1,6 @@
-package com.connorlinfoot.betterchat.Commands;
+package com.connorlinfoot.betterchat.Bukkit.Commands;
 
-import com.connorlinfoot.betterchat.ChannelHandler;
+import com.connorlinfoot.betterchat.Bukkit.BetterChat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -9,6 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class WhatChannelCommand implements CommandExecutor {
+	private BetterChat betterChat;
+
+	public WhatChannelCommand(BetterChat betterChat) {
+		this.betterChat = betterChat;
+	}
 
 	public boolean onCommand(CommandSender sender, Command command, String string, String[] args) {
 		if (args.length != 1) {
@@ -22,7 +27,7 @@ public class WhatChannelCommand implements CommandExecutor {
 			return false;
 		}
 
-		sender.sendMessage(ChatColor.GREEN + "The player \"" + player.getName() + "\" is in the \"" + ChannelHandler.getPlayerChannel(player) + "\" channel");
+		sender.sendMessage(ChatColor.GREEN + "The player \"" + player.getName() + "\" is in the \"" + betterChat.getChannelHandler().getPlayerChannel(player.getUniqueId()) + "\" channel");
 		return true;
 	}
 

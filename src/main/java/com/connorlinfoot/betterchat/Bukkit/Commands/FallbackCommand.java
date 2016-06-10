@@ -1,4 +1,4 @@
-package com.connorlinfoot.betterchat.Commands;
+package com.connorlinfoot.betterchat.Bukkit.Commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
