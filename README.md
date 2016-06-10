@@ -9,7 +9,7 @@ BetterChat allows multiple custom chat channels as well as a staff chat.
 You can download the latest "stable" release of BetterChat on Spigot: http://www.spigotmc.org/resources/betterchat.4372/
 
 ### Requirements
-* Bukkit/Spigot/BungeeCord 1.7 - 1.10
+* Bukkit/Spigot 1.7 - 1.10 OR BungeeCord (Only 1.9+ Tested!)
 * Java 7 or newer
 
 ### Features
@@ -36,7 +36,6 @@ You can download the latest "stable" release of BetterChat on Spigot: http://www
 * Channel configuration GUI
 * BountifulAPI support. (Maybe)
 * BarAPI support. (Maybe)
-* Older version support, such as 1.6 and 1.5. (Maybe)
 * Many more planned features will be added.
 * Drink beer.
 

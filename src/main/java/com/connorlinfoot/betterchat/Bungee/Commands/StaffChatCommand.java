@@ -1,41 +1,39 @@
-package com.connorlinfoot.betterchat.Bukkit.Commands;
+package com.connorlinfoot.betterchat.Bungee.Commands;
 
-import com.connorlinfoot.betterchat.Bukkit.BetterChat;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Sound;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
+import com.connorlinfoot.betterchat.Bungee.BetterChat;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.CommandSender;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
+import net.md_5.bungee.api.plugin.Command;
 
-public class StaffChatCommand implements CommandExecutor {
+public class StaffChatCommand extends Command {
 	private BetterChat betterChat;
 
 	public StaffChatCommand(BetterChat betterChat) {
+		super("staffchat", "", "sc");
 		this.betterChat = betterChat;
 	}
 
-	public boolean onCommand(CommandSender sender, Command command, String string, String[] args) {
+	public void execute(CommandSender sender, String[] args) {
 		if (!betterChat.getConfig().getBoolean("Settings.Staff Chat Enabled")) {
 			sender.sendMessage(ChatColor.RED + "Staff chat is disabled");
-			return false;
+			return;
 		}
 
-		if (!(sender instanceof Player)) {
+		if (!(sender instanceof ProxiedPlayer)) {
 			sender.sendMessage(ChatColor.RED + "This command currently only works for players");
-			return false;
+			return;
 		}
 
-		Player player = (Player) sender;
+		ProxiedPlayer player = (ProxiedPlayer) sender;
 		if (!player.hasPermission("betterchat.staff")) {
 			sender.sendMessage(ChatColor.RED + "You do not have permission to run this command");
-			return false;
+			return;
 		}
 
 		if (args.length == 0) {
 			sender.sendMessage(ChatColor.RED + "Correct usage: /staffchat <message>");
-			return false;
+			return;
 		}
 
 		StringBuilder stringBuilder = new StringBuilder();
@@ -50,18 +48,17 @@ public class StaffChatCommand implements CommandExecutor {
 
 		String prefix = ChatColor.translateAlternateColorCodes('&', betterChat.getConfig().getString("Settings.Staff Chat Prefix"));
 		boolean playerMentions = betterChat.getConfig().getBoolean("Settings.Enable Player Mentions");
-		for (Player player1 : Bukkit.getOnlinePlayers()) {
+		for (ProxiedPlayer player1 : betterChat.getProxy().getPlayers()) {
 			if (player1.hasPermission("betterchat.staff")) {
 				player1.sendMessage(prefix + " " + ChatColor.GOLD + player.getDisplayName() + ChatColor.RESET + ": " + message);
-				if (playerMentions) {
-					if (message.toLowerCase().contains(" " + player1.getName().toLowerCase())) {
-						player1.playSound(player1.getLocation(), Sound.CHEST_OPEN, 1, 1);
-					}
-				}
+//				if (playerMentions) {
+				// TODO (If possible)
+//					if (message.toLowerCase().contains(" " + player1.getName().toLowerCase())) {
+//						player1.playSound(player1.getLocation(), Sound.CHEST_OPEN, 1, 1);
+//					}
+//				}
 			}
 		}
-
-		return false;
 	}
 
 }

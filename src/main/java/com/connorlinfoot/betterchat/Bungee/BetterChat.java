@@ -10,17 +10,15 @@ import java.io.IOException;
 
 public class BetterChat extends Plugin {
 	private Configuration configuration;
-	private BungeeChannelHandler bungeeChannelHandler;
+	private BungeeChannelHandler channelHandler;
 
 	public void onEnable() {
-
 		try {
 			configuration = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new File(getDataFolder(), "config.yml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		bungeeChannelHandler = new BungeeChannelHandler(this);
-
+		channelHandler = new BungeeChannelHandler(this);
 	}
 
 	public Configuration getConfig() {
@@ -29,6 +27,10 @@ public class BetterChat extends Plugin {
 
 	public void saveConfig() {
 
+	}
+
+	public BungeeChannelHandler getChannelHandler() {
+		return channelHandler;
 	}
 
 }
